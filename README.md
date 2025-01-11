@@ -7,7 +7,7 @@ This README are notes I wrote down while studying LLM and creating my own. It mi
 
 Right now, the only things I know about LLM is that it's a new kind of text generation AI, that is somehow may better than anything created before. 
 
-What is the difference with deep learning, machine learning, etc.? LLM is a subset of Deep Learning, which is a subset of Machine Learning, which is a subset of what we call "AI". Alright, that seams clear enough.
+What is the difference with deep learning, machine learning, etc.? LLM is a subset of Deep Learning, which is a subset of Machine Learning, which is a subset of what we call "AI". Alright, that seams clear enough for now.
 
 ## Am I even doing something meaningful?: Finetuning or creating a LLM from scratch
 
@@ -21,11 +21,11 @@ In addition, creating my own set of quality data to train an existing model soun
 
 All of this sounds quite expensive by the way. I only have one RTX2080, so one of the challenge I will face is training with the means I have. Can I even pretrain my own model with my GPU?
 
-## Wait, what tool do I need to dig?: What makes LLM so good
+## Wait, what tool do I need to dig?: What makes modern LLM so good
 
 The secret seems to be about the "transformer" architecture, and its "attention mechanism". No idea what it means for now, but I'm sure it will be more clear once I continue learning about it. The paper "Attention is All You Need" from Google seems to be gold, but is very dense and very technical for me at the moment. Let's take it slowly.
 
-The transformer architecture detailed in this paper has a multiple layers and steps. It deosn't seem to be completely linear by the way. Here is the image detailled in the paper:
+This paper is about the transformer architecture used to create a translation LLM. The transformer architecture detailed in this paper has a multiple layers and steps. It deosn't seem to be completely linear by the way. Here is the image detailled in the paper:
 
 ![Transformer architecture](./images/transformer.png)
 
@@ -62,4 +62,12 @@ In the graph, the embedding layer output seems to feed a layer in the right side
 
 ### Attention mechanism
 
-Something is still missing. The attention mechanism is quite complex and can't really be shown in a simple graph. The attention mechanism seems to be refering to the ability of the model to focus on very specific parts of the input text to generate the output. With the attention mechanism, the model can stay focused on the main subject of the text and generate a meaningful output, instead of generating a grammatically correct but meaningless output. How is that done? No idea yet, but I'm sure I will understand it later.
+Something is still missing. The attention mechanism is quite complex and can't really be shown in a simple graph. The attention mechanism seems to be refering to the ability of the model to focus on very specific parts of the input text to generate the output. With the attention mechanism, the model can stay focused on the main subject of the text and generate a meaningful output, instead of generating a grammatically correct but meaningless output. 
+
+In the main graph, the "Multi-Head Attention" blocs seems to be linked to the attention mechanism. It seems to work like this:
+
+- Weights are added to tokens, depending on their importance in the text
+- Importance of words are not linked with their position in the text, so the model won't "forget" the important parts of the text if they are at the beginning of the text
+
+The technical details are still out of my sight for now. I will dig deeper into it later.
+
